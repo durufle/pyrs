@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+version= "0.0.0"
+name = "ragnarok-pyrs"
+authors = [
+    {name = "Laurent Bonnet", email = "laurent.woolcap@free.fr"}
+]
+description = "Rhode & Schwarz HMP Power supply serie wrapper"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.8"
+dependencies = [
+    "pyvisa",
+]
+
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+
+[project.urls]
+Home = "https://github.com/durufle/pyrs"
+BugTracker = "https://github.com/durufle/pyrs/issues"
+SourceCode = "https://github.com/durufle/pyrs"
+
+[tool.setuptools.packages.find]
+exclude = ['examples*', 'venv*', 'docs*']
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.pylint.master]
+ignore="conf.py, instruments.py, measure.py, ouput.py, source.py"
+
+[tool.pylint.format]
+max-line-length = 120
+disable = ""
+
+
+

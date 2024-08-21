@@ -1,0 +1,11 @@
+build/
+dist/
+*.egg-info/
+tox/
+__pycache__/
+.idea/
+.coverage
+venv/
+htmlcov/
+junit/
+coverage.xml
