@@ -1,10 +1,15 @@
+"""
+example on instrument sub-command
+"""
 from pyrs.hmp2030 import HMP2030
-
-address = 'USB0::0x0AAD::0x0117::120470::INSTR'
 
 
 def main():
-    device = HMP2030(address)
+    """
+    main function
+    :return:
+    """
+    device = HMP2030('USB0::0x0AAD::0x0117::120470::INSTR')
     device.beep()
 
     print("----------------------------------------------------------------------------------------------------------")

@@ -47,7 +47,7 @@ ignore="conf.py, instruments.py, measure.py, ouput.py, source.py"
 
 [tool.pylint.format]
 max-line-length = 120
-disable = ""
+disable = "R0904, R0801"
 
 
 
