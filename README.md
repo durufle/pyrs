@@ -40,3 +40,11 @@ To build a wheel package:
 ```bash
 (venv) ~/worspace/pyrs $ python -m build
 ```
+
+To execute pylint locally you can do the following:
+
+```bash
+(venv) ~/worspace/pyrs $ p pylint $(git ls-files '*.py')
+```
+This will execute pylint for all python files in the repository.
+
