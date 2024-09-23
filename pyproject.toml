@@ -30,6 +30,7 @@ classifiers = [
 ]
 
 [project.scripts]
+pyrs_cli = "pyrs.power_cli:main"
 
 [project.urls]
 Home = "https://github.com/durufle/pyrs"
@@ -37,7 +38,7 @@ BugTracker = "https://github.com/durufle/pyrs/issues"
 SourceCode = "https://github.com/durufle/pyrs"
 
 [tool.setuptools.packages.find]
-exclude = ['examples*', 'venv*', 'docs*']
+exclude = ['venv*', 'docs*']
 
 [tool.setuptools]
 include-package-data = true

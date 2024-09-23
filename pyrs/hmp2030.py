@@ -10,15 +10,15 @@ class HMP2030:
     """
     HMP2028 Power supply class
     """
-    def __init__(self, name, visa="/usr/lib/librsvisa.so"):
+    def __init__(self, name, library="/usr/lib/librsvisa.so"):
         """
         Create HMP2030 object
 
         :param name: VISA resource name
-        :param visa: Path on VISA backend library
+        :param library: Path on VISA backend library
         """
         self._source = 'VOLT'
-        rm = pyvisa.ResourceManager(visa)
+        rm = pyvisa.ResourceManager(visa_library=library)
         self.instr = rm.open_resource(name)
 
     def send(self, command):
@@ -177,6 +177,19 @@ class HMP2030:
         """
         if state in ['ON', 'OFF']:
             self.send(f'OUTP:STAT {state}')
+
+    def output_selected(self, channels: list, state):
+        """
+        selected channels in the list, activate and turns on output simultaneously
+
+        :param channels: a list of channel number (1,2,3)
+        :param state: 0 or 1
+        :return: None
+        """
+        for i in channels:
+            self.send(f'INST:NSEL {i}')
+            self.send(f'OUTP:SEL {state}')
+            self.send(f'OUTP:GEN {state}')
 
     # ------------------------------------------------------------------------------------------------------------------
     # SOURCE subsystem
@@ -377,6 +390,18 @@ class HMP2030:
         """
         self.send('APPLY?')
         return self.read()
+
+    def set_power(self, sets: dict):
+        """
+        set power according to dictionary
+        {1:value, 2:value}
+
+        :warning: no control is made on dictionary content
+        :return:
+        """
+        for i in sets:
+            self.channel = i
+            self.volt = sets[i]
 
     # ------------------------------------------------------------------------------------------------------------------
     # STATUS subsystem
