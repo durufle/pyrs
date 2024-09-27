@@ -30,7 +30,7 @@ classifiers = [
 ]
 
 [project.scripts]
-pyrs_cli = "pyrs.power_cli:main"
+pyrs_cli = "bin.power_cli:main"
 
 [project.urls]
 Home = "https://github.com/durufle/pyrs"
